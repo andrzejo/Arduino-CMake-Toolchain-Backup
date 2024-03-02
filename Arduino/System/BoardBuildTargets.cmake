@@ -824,6 +824,7 @@ function(_library_search_process lib search_paths_var search_suffixes_var return
 	# convert lib to a string that can be used in regular expression match
 	string(REPLACE "\\" "\\\\" lib_regex "${lib}")
 	string(REGEX REPLACE "([].$[*+?|()])" "\\1" lib_regex "${lib_regex}")
+ 	string(REPLACE "+" "\\+" lib_regex "${lib_regex}")
 	# message("lib_regex:${lib_regex}")
 	set(matched_folder_priority 6) # Initialize to higher value of all priorities
 	set(matched_arch_priority 3) # Initialize to higher value of all priorities
